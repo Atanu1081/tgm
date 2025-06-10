@@ -17,11 +17,12 @@
 1. Product : 8080
 2. Order : 8090
 3. Spring cloud config server : 8071
-4. Spring cloud eureka : 8070
+4. Spring cloud eureka server : 8070
 
 # Useful links :
 1. Swagger : http://localhost:8080/swagger-ui.html
 2. H2-UI : http://localhost:8080/h2-console
 3. Actuator : http://localhost:8080/actuator
-4. Eureka : http://localhost:8080/
+4. RabbitMQ UI : http://127.0.0.1:15672 | username : guest | password : guest
+5. Eureka : http://localhost:8080/
 
