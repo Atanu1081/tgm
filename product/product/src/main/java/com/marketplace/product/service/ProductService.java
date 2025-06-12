@@ -1,5 +1,7 @@
 package com.marketplace.product.service;
 
+import com.marketplace.product.dto.AllInfoDto;
+import com.marketplace.product.dto.OrderDto;
 import com.marketplace.product.dto.ProductDto;
 import com.marketplace.product.entity.Products;
 import com.marketplace.product.repository.ProductRepository;
@@ -15,6 +17,9 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderFeignClient orderFeignClient;
 
     public List<ProductDto> getAllProducts() {
         List<Products> productsList = productRepository.findAll();
@@ -41,5 +46,22 @@ public class ProductService {
 
     public void removeProducts(Long productId) {
         productRepository.deleteById(productId);
+    }
+
+    public List<AllInfoDto> getAllInfo() {
+        List<Products> productsList = productRepository.findAll();
+        List<AllInfoDto> allInfoDtoList = new ArrayList<>();
+        List<OrderDto> body = orderFeignClient.getAllOrders().getBody();
+        for (int i = 0; i < productsList.size(); i++) {
+            AllInfoDto allInfoDto = new AllInfoDto();
+            allInfoDto.setProductId(productsList.get(i).getProductId());
+            allInfoDto.setName(productsList.get(i).getName());
+            allInfoDto.setPrice(productsList.get(i).getPrice());
+            allInfoDto.setQuantity(productsList.get(i).getQuantity());
+            allInfoDto.setOrderStatus(body.get(i).getOrderStatus());
+            allInfoDto.setOrderDate(body.get(i).getOrderDate());
+            allInfoDtoList.add(allInfoDto);
+        }
+        return allInfoDtoList;
     }
 }

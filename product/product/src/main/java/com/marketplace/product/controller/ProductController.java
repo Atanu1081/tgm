@@ -1,6 +1,7 @@
 package com.marketplace.product.controller;
 
 import com.marketplace.product.dto.AccountsContactInfoDto;
+import com.marketplace.product.dto.AllInfoDto;
 import com.marketplace.product.dto.ProductDto;
 import com.marketplace.product.entity.Products;
 import com.marketplace.product.service.ProductService;
@@ -107,5 +108,13 @@ public class ProductController {
     @GetMapping(path = "/account-info")
     public AccountsContactInfoDto getAccountInfo() {
         return accountsContactInfoDto;
+    }
+
+    @GetMapping(path = "/all-info")
+    public ResponseEntity<List<AllInfoDto>> getAllInfo() {
+        List<AllInfoDto> allInfo = productService.getAllInfo();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(allInfo);
     }
 }
