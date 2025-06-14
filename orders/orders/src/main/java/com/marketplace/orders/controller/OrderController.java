@@ -4,6 +4,9 @@ import com.marketplace.orders.dto.AccountsContactInfoDto;
 import com.marketplace.orders.dto.OrderDto;
 import com.marketplace.orders.entity.Orders;
 import com.marketplace.orders.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -16,6 +19,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/orders")
 public class OrderController {
+
+    private Logger log = LoggerFactory.getLogger(OrderController.class);
 
     @Autowired
     private OrderService orderService;
@@ -60,6 +65,7 @@ public class OrderController {
 
     @GetMapping(path = "/java-version")
     public String getJavaVersion() {
+        log.info("Inside method call");
         return environment.getProperty("java.version");
     }
 
