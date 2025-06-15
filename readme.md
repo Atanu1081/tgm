@@ -22,6 +22,7 @@
 3. Spring cloud config server : 8071
 4. Spring cloud eureka server : 8070
 5. Spring cloud gateway server : 8072
+6. Grafana : 3000
 
 # Useful links :
 1. Swagger UI : http://localhost:8080/swagger-ui.html
