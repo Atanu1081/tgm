@@ -1,11 +1,19 @@
 # TechStack Used :
 1. Programming language : Java 21.
 2. Application framework : Spring Boot 3.x.x.
-3. Version control : Git and GitHub.
-4. Build tool : Apache Maven.
-5. Configuration management : Spring cloud config.
-6. Service registration & discovery : Spring cloud eureka.
-7. API Gateway : Spring cloud gateway.
+3. Dependency Injection : Spring | _Governator_.
+4. Version control : Git and GitHub.
+5. Build tool : Apache Maven.
+6. Configuration management : Spring cloud config | _Archaius_.
+7. Service registration & discovery : Spring cloud eureka | _Eureka_.
+8. API Gateway : Spring cloud gateway.
+9. Load balancing : Spring cloud loadbalancer | _Ribbon_.
+10. Resiliency :  Resiliency4j | _Hystrix_.
+11. Observability & Monitoring : Grafana(LGTM) | EAGLE | ELK.
+    - Logs : Promtail -> Alloy.
+    - Metrics : Prometheus.
+    - Trace : Tempo | Spring Sleuth + Zipkin | Apache Jaegar.
+12. Auth server : Keycloak | Okta | Amazon Cognito. 
 
 # Useful Commands :
 1. Check java version : java --version
